@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Японский язык: Интерактивный чек-лист</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Полный учебный курс японского языка | N5-N3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #FF4E50;
-            --secondary: #2B5876;
+            --primary: #2B5876;
+            --secondary: #4E4376;
             --accent: #FF8E53;
             --light: #F9F9F9;
             --dark: #2C3E50;
-            --success: #4CAF50;
+            --text: #333;
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: #f5f7fa;
             margin: 0;
             padding: 0;
         }
@@ -35,163 +34,114 @@
         header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 2rem 0;
+            padding: 2rem;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         h1 {
             color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, var(--primary), var(--accent));
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        .japanese {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 1.2em;
-        }
-        
-        .stage {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border-left: 5px solid var(--primary);
-        }
-        
-        .stage:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
         h2 {
-            color: var(--secondary);
-            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
             font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin-top: 2rem;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        h3 {
-            color: var(--secondary);
-            font-size: 1.3rem;
-            margin-top: 1.5rem;
+        .japanese {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.1em;
         }
         
-        .checklist {
-            list-style-type: none;
-            padding: 0;
-            margin: 1.5rem 0;
+        .stage {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
-        .checklist li {
-            padding: 1rem 0;
-            border-bottom: 1px dashed #eee;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-        
-        .checkbox {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            margin-right: 15px;
-            color: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-        
-        .checkbox:hover {
-            background: rgba(255, 78, 80, 0.1);
-        }
-        
-        .checkbox.checked {
-            background: var(--success);
-            border-color: var(--success);
-            color: white;
-        }
-        
-        .resource-box {
-            background: rgba(43, 88, 118, 0.05);
-            border-left: 4px solid var(--secondary);
-            padding: 1.2rem;
+        .book-card {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
             margin: 1.5rem 0;
             border-radius: 0 8px 8px 0;
         }
         
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .book-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
         
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        th {
-            background-color: var(--secondary);
-            color: white;
-            font-weight: 600;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
-        tr:hover {
-            background-color: rgba(255, 142, 83, 0.05);
-        }
-        
-        .kanji-cell {
-            font-size: 1.5rem;
-            text-align: center;
-            font-weight: bold;
-        }
-        
-        .progress-container {
-            width: 100%;
-            background: #e0e0e0;
-            border-radius: 10px;
-            margin: 2rem 0;
-            height: 10px;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            border-radius: 10px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            width: 0%;
-            transition: width 1s ease;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 1.5rem;
+        .book-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
             color: #666;
             font-size: 0.9rem;
+        }
+        
+        .book-cover {
+            width: 100px;
+            float: left;
+            margin-right: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .grammar-point {
+            background: rgba(255,142,83,0.1);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .grammar-example {
+            font-style: italic;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+        
+        .resource-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .resource-list li {
+            margin-bottom: 0.8rem;
+        }
+        
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: var(--accent);
         }
         
         @media (max-width: 768px) {
@@ -203,216 +153,222 @@
                 font-size: 1.8rem;
             }
             
-            h2 {
-                font-size: 1.4rem;
-            }
-            
-            th, td {
-                padding: 0.8rem;
-                font-size: 0.9rem;
+            .book-cover {
+                float: none;
+                display: block;
+                margin: 0 auto 1rem;
             }
         }
-
-        /* Анимации */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .stage {
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        .stage:nth-child(2) { animation-delay: 0.1s; }
-        .stage:nth-child(3) { animation-delay: 0.2s; }
-        .stage:nth-child(4) { animation-delay: 0.3s; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-language"></i> Японский язык: Чек-лист</h1>
-            <p>Полный путь от N5 до N3 с интерактивным отслеживанием прогресса</p>
-            
-            <div class="progress-container">
-                <div class="progress-bar" id="progress"></div>
-            </div>
+            <h1><i class="fas fa-book-open"></i> Полный учебный курс японского языка</h1>
+            <p>От нуля до уровня JLPT N3: учебники, ресурсы и программа изучения</p>
         </header>
 
-        <div class="stage">
-            <h2><i class="fas fa-baby"></i> Этап 0: Основы (2-3 недели)</h2>
-            <h3><i class="fas fa-font"></i> Хирагана и катакана</h3>
+        <section>
+            <h2><i class="fas fa-map-signs"></i> Программа изучения</h2>
             
-            <ul class="checklist">
-                <li>
-                    <span class="checkbox">☐</span>
-                    Выучить базовые слоги: 
-                    <span class="japanese">あ い う え お</span> / 
-                    <span class="japanese">ア イ ウ エ オ</span>
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Освоить все 46 символов каждой азбуки
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Научиться писать символы в правильном порядке черт
-                </li>
-            </ul>
-
-            <div class="resource-box">
-                <strong><i class="fas fa-book-open"></i> Ресурсы:</strong>
-                <ul>
-                    <li><a href="https://www.tofugu.com/japanese/learn-hiragana/" target="_blank">Гайд Tofugu по хирагане</a></li>
-                    <li>Приложения: <strong>Kana Town</strong>, <strong>LingoDeer</strong></li>
-                    <li>YouTube: <a href="https://www.youtube.com/c/JapaneseAmmowithMisa" target="_blank">Japanese Ammo with Misa</a></li>
+            <div class="stage">
+                <h3><i class="fas fa-baby"></i> Этап 0: Основы (2-3 недели)</h3>
+                <p>Освоение письменности и базовых фраз</p>
+                
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/51Q+DctnH5L._SY425_.jpg" alt="Kana Workbook" class="book-cover">
+                    <div class="book-title">«Учим японские азбуки» (АСТ)</div>
+                    <div class="book-meta">
+                        <span><i class="fas fa-star"></i> Лучшие прописи</span>
+                        <span><i class="fas fa-clock"></i> 2-3 недели</span>
+                    </div>
+                    <p>Прописи для хираганы и катаканы с порядком черт. Идеально для начинающих.</p>
+                </div>
+                
+                <h4>Что делать:</h4>
+                <ol>
+                    <li>Учите по 10 символов хираганы в день</li>
+                    <li>Повторяйте предыдущие символы</li>
+                    <li>Через неделю переходите к катакане</li>
+                    <li>Пишите символы в тетради ежедневно</li>
+                </ol>
+                
+                <h4>Ресурсы:</h4>
+                <ul class="resource-list">
+                    <li><a href="https://www.tofugu.com/japanese/learn-hiragana/" target="_blank">Гайд Tofugu по хирагане</a> - интерактивное обучение</li>
+                    <li>Приложение <strong>Kana Town</strong> - запоминание через карточки</li>
+                    <li>YouTube-канал <a href="https://www.youtube.com/c/JapaneseAmmowithMisa" target="_blank">Japanese Ammo with Misa</a> - объяснение произношения</li>
                 </ul>
             </div>
-        </div>
-
-        <div class="stage">
-            <h2><i class="fas fa-award"></i> Этап 1: Уровень N5 (2-3 месяца)</h2>
             
-            <h3><i class="fas fa-graduation-cap"></i> Грамматика</h3>
-            <ul class="checklist">
-                <li>
-                    <span class="checkbox">☐</span>
-                    Вежливые формы <span class="japanese">です・ます</span>
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Частицы <span class="japanese">は、を、に、で</span>
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Отрицательные и вопросительные формы
-                </li>
-            </ul>
-
-            <h3><i class="fas fa-kanji"></i> Кандзи (100+)</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Иероглиф</th>
-                        <th>Чтение</th>
-                        <th>Значение</th>
-                        <th>Пример</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="kanji-cell japanese">人</td>
-                        <td>hito / jin</td>
-                        <td>человек</td>
-                        <td class="japanese">日本人 (японец)</td>
-                    </tr>
-                    <tr>
-                        <td class="kanji-cell japanese">日</td>
-                        <td>hi / nichi</td>
-                        <td>день/солнце</td>
-                        <td class="japanese">日本 (Япония)</td>
-                    </tr>
-                    <tr>
-                        <td class="kanji-cell japanese">水</td>
-                        <td>mizu / sui</td>
-                        <td>вода</td>
-                        <td class="japanese">水曜日 (среда)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="stage">
-            <h2><i class="fas fa-chart-line"></i> Этап 2: Уровень N4 (3-4 месяца)</h2>
-            
-            <ul class="checklist">
-                <li>
-                    <span class="checkbox">☐</span>
-                    Изучить て-формы (<span class="japanese">～ている</span>)
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Условные конструкции (<span class="japanese">～たら、～ば</span>)
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Освоить 300+ кандзи
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Чтение простых статей NHK Easy News
-                </li>
-            </ul>
-        </div>
-
-        <div class="stage">
-            <h2><i class="fas fa-trophy"></i> Этап 3: Уровень N3 (3-5 месяцев)</h2>
-            
-            <ul class="checklist">
-                <li>
-                    <span class="checkbox">☐</span>
-                    Освоить 600+ кандзи
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Сложные грамматические конструкции
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Чтение манги без фуриганы
-                </li>
-                <li>
-                    <span class="checkbox">☐</span>
-                    Просмотр аниме/дорам без субтитров
-                </li>
-            </ul>
-        </div>
-
-        <footer>
-            <p>Чек-лист обновляется автоматически. Ваш прогресс сохраняется в браузере.</p>
-            <p>© 2023 Японский язык: путь от N5 до N3</p>
-        </footer>
-    </div>
-
-    <script>
-        // Интерактивные чекбоксы
-        document.querySelectorAll('.checkbox').forEach(checkbox => {
-            checkbox.addEventListener('click', function() {
-                this.classList.toggle('checked');
-                this.textContent = this.classList.contains('checked') ? '✓' : '☐';
-                updateProgress();
-            });
-        });
-
-        // Обновление прогресс-бара
-        function updateProgress() {
-            const total = document.querySelectorAll('.checkbox').length;
-            const checked = document.querySelectorAll('.checkbox.checked').length;
-            const progress = (checked / total) * 100;
-            
-            document.getElementById('progress').style.width = `${progress}%`;
-            
-            // Сохранение в localStorage
-            const checks = Array.from(document.querySelectorAll('.checkbox'))
-                .map(box => box.classList.contains('checked'));
-            localStorage.setItem('japaneseChecklist', JSON.stringify(checks));
-        }
-
-        // Загрузка сохраненного прогресса
-        document.addEventListener('DOMContentLoaded', function() {
-            if(localStorage.getItem('japaneseChecklist')) {
-                const checks = JSON.parse(localStorage.getItem('japaneseChecklist'));
+            <div class="stage">
+                <h3><i class="fas fa-award"></i> Этап 1: Уровень N5 (2-3 месяца)</h3>
+                <p>Базовые грамматика, лексика и 100+ кандзи</p>
                 
-                document.querySelectorAll('.checkbox').forEach((box, i) => {
-                    if(checks[i]) {
-                        box.classList.add('checked');
-                        box.textContent = '✓';
-                    }
-                });
-            }
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/51GKFY9P24L._SY425_.jpg" alt="Minna no Nihongo" class="book-cover">
+                    <div class="book-title">«Minna no Nihongo I» + перевод на русский</div>
+                    <div class="book-meta">
+                        <span><i class="fas fa-star"></i> Основной учебник</span>
+                        <span><i class="fas fa-clock"></i> 2-3 месяца</span>
+                    </div>
+                    <p>Самый популярный учебник для начинающих. Включает грамматику, лексику и упражнения.</p>
+                    <p><strong>Дополнительно:</strong> Рабочая тетрадь и аудиоматериалы.</p>
+                </div>
+                
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/41Q6TvsR1VL._SY425_.jpg" alt="Кандзи для начинающих" class="book-cover">
+                    <div class="book-title">«Кандзи для начинающих» (Лаврентьев Б.П.)</div>
+                    <p>120 базовых кандзи с порядком черт и примерами слов.</p>
+                </div>
+                
+                <h4>Ключевые темы грамматики:</h4>
+                <div class="grammar-point">
+                    <strong>です・ます формы</strong> - вежливый стиль речи
+                    <div class="grammar-example">
+                        <span class="japanese">わたしは学生です。</span> (Я студент.)
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <strong>Частицы</strong> - は (тема), を (объект), に (направление)
+                    <div class="grammar-example">
+                        <span class="japanese">わたしはコーヒーを飲みます。</span> (Я пью кофе.)
+                    </div>
+                </div>
+                
+                <h4>План изучения:</h4>
+                <ol>
+                    <li>Проходите по 1 уроку Minna no Nihongo в неделю</li>
+                    <li>Учите 5-7 кандзи ежедневно</li>
+                    <li>Делайте упражнения из рабочей тетради</li>
+                    <li>Слушайте аудиоматериалы 3 раза в неделю</li>
+                </ol>
+            </div>
             
-            updateProgress();
-        });
-    </script>
+            <div class="stage">
+                <h3><i class="fas fa-chart-line"></i> Этап 2: Уровень N4 (3-4 месяца)</h3>
+                <p>Углублённая грамматика и 300+ кандзи</p>
+                
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/51F7N2V9QVL._SY425_.jpg" alt="Genki II" class="book-cover">
+                    <div class="book-title">«Genki II» (англ.) + русские конспекты</div>
+                    <div class="book-meta">
+                        <span><i class="fas fa-star"></i> Лучшие объяснения</span>
+                        <span><i class="fas fa-clock"></i> 3-4 месяца</span>
+                    </div>
+                    <p>Яркий учебник с диалогами и культурными заметками. Можно найти фанатские переводы грамматики.</p>
+                </div>
+                
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/51QY2X2N1RL._SY425_.jpg" alt="Nihongo So-Matome" class="book-cover">
+                    <div class="book-title">«Nihongo So-Matome N4» (文法・語彙)</div>
+                    <p>6-недельная программа подготовки к JLPT N4.</p>
+                </div>
+                
+                <h4>Ключевые темы грамматики:</h4>
+                <div class="grammar-point">
+                    <strong>て-формы</strong> - ～ている (действие в процессе), ～てください (просьба)
+                    <div class="grammar-example">
+                        <span class="japanese">テレビを見ています。</span> (Я смотрю телевизор.)
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <strong>Условные предложения</strong> - ～たら, ～ば
+                    <div class="grammar-example">
+                        <span class="japanese">時間があったら、行きます。</span> (Если будет время, я пойду.)
+                    </div>
+                </div>
+                
+                <h4>Ресурсы для практики:</h4>
+                <ul class="resource-list">
+                    <li><a href="https://www3.nhk.or.jp/news/easy/" target="_blank">NHK Easy News</a> - упрощённые новости на японском</li>
+                    <li>Манга <strong>「よつばと！」(Yotsuba&!)</strong> - простые диалоги</li>
+                    <li>Приложение <strong>Anki</strong> с колодой "Core 2k" - для лексики</li>
+                </ul>
+            </div>
+            
+            <div class="stage">
+                <h3><i class="fas fa-trophy"></i> Этап 3: Уровень N3 (3-5 месяцев)</h3>
+                <p>Подготовка к JLPT N3 и свободное общение</p>
+                
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/51W+FQhZ5VL._SY425_.jpg" alt="Shin Kanzen Master" class="book-cover">
+                    <div class="book-title">«Shin Kanzen Master N3» (文法・読解)</div>
+                    <div class="book-meta">
+                        <span><i class="fas fa-star"></i> Лучший для JLPT</span>
+                        <span><i class="fas fa-clock"></i> 3-5 месяцев</span>
+                    </div>
+                    <p>Полная подготовка к экзамену с объяснениями и практическими тестами.</p>
+                </div>
+                
+                <div class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/41Q6TvsR1VL._SY425_.jpg" alt="Kanji in Context" class="book-cover">
+                    <div class="book-title">«Kanji in Context» (англ.)</div>
+                    <p>600+ кандзи в контексте слов и предложений.</p>
+                </div>
+                
+                <h4>Ключевые темы:</h4>
+                <div class="grammar-point">
+                    <strong>Сложные конструкции</strong> - ～ばかり (только что), ～ほど (настолько, что)
+                    <div class="grammar-example">
+                        <span class="japanese">食べたばかりです。</span> (Я только что поел.)
+                    </div>
+                </div>
+                
+                <div class="grammar-point">
+                    <strong>Косвенная речь</strong> - ～と言っていました
+                    <div class="grammar-example">
+                        <span class="japanese">先生は明日テストがあると言っていました。</span> (Учитель сказал, что завтра будет тест.)
+                    </div>
+                </div>
+                
+                <h4>План подготовки:</h4>
+                <ol>
+                    <li>Проходите по 1 главе Shin Kanzen Master в неделю</li>
+                    <li>Читайте 1 статью в день из <a href="https://www3.nhk.or.jp/news/easy/" target="_blank">NHK Easy News</a></li>
+                    <li>Смотрите аниме/дорамы без субтитров (начать с <strong>「しろくまカフェ」</strong>)</li>
+                    <li>Делайте пробные тесты JLPT N3 за последние годы</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section>
+            <h2><i class="fas fa-bookmark"></i> Дополнительные материалы</h2>
+            
+            <div class="book-card">
+                <img src="https://m.media-amazon.com/images/I/41YVh2Qn3VL._SY425_.jpg" alt="Dictionary of Grammar" class="book-cover">
+                <div class="book-title">«A Dictionary of Basic Japanese Grammar»</div>
+                <p>Лучший справочник по грамматике уровней N5-N4 с примерами.</p>
+            </div>
+            
+            <div class="book-card">
+                <img src="https://m.media-amazon.com/images/I/41QY2X2N1RL._SY425_.jpg" alt="Remembering the Kanji" class="book-cover">
+                <div class="book-title">«Remembering the Kanji» (Heisig)</div>
+                <p>Метод запоминания кандзи через ассоциации (на английском).</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2><i class="fas fa-calendar-alt"></i> Ежедневный план занятий</h2>
+            
+            <div class="book-card">
+                <h4>Для уровня N5-N4:</h4>
+                <ul class="resource-list">
+                    <li><strong>Утро (30 мин):</strong> Грамматика (учебник)</li>
+                    <li><strong>Обед (20 мин):</strong> Кандзи (5-7 новых + повторение)</li>
+                    <li><strong>Вечер (30 мин):</strong> Чтение/аудирование (NHK Easy News)</li>
+                </ul>
+                
+                <h4>Для уровня N3:</h4>
+                <ul class="resource-list">
+                    <li><strong>Утро (40 мин):</strong> Грамматика (Shin Kanzen Master)</li>
+                    <li><strong>День (30 мин):</strong> Чтение статей/манги</li>
+                    <li><strong>Вечер (30 мин):</strong> Аудирование (подкасты, аниме)</li>
+                </ul>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
